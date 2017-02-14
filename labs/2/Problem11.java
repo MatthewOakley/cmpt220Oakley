@@ -18,14 +18,27 @@ public class Problem11 {
     // Create a Scanner
     Scanner input = new Scanner(System.in);
     
+    double amount - 0.0;
+    
     // Receive the amount
     do {
       System.out.print("Enter an amount in double, for " 
       + "example 11.56: ");
-      double amount = input.nextDouble();
+      amount = input.nextDouble();
     } while (amount < 0);
     
+    // less code method
     int remainingAmount = (int)Math.round((amount * 100));
+    
+    /*
+     method with substring
+      System.out.print("Enter an amount in double, for " 
+      + "example 11.56: ");
+      String amount = input.next();
+      // converts from String to float to int
+      int remainingAmount = 
+      (int)(100 * Float.parseFloat(amount.substring(0)));
+    */
     
     // Find the number of one dollars
     int numberOfOneDollars = remainingAmount / 100;

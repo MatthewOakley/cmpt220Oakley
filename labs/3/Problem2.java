@@ -16,12 +16,12 @@ public class Problem2 {
     double tuition = 10000;
     double totalCost = 0;
     
-    for(int i = 0; i < 15; i++) {
+    for(int i = 0; i < 14; i++) {
       tuition = tuition * 1.05;
       // if after 10 years will add to total cost
-      if(i == 10)
+      if(i == 9)
         System.out.format("Tuition 10th year: %.2f\n", tuition);
-      else if (i > 10)
+      else if (i > 9)
         totalCost = totalCost + tuition;
     }
     System.out.format("The total cost after ten years is : %.2f"

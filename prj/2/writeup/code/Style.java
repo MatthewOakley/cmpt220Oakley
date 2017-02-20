@@ -4,7 +4,7 @@
  * course: CMPT 220-201
  * assignment: project 2
  * due date: May 8, 2017   
- * version: 0.0  
+ * version: 0.2  
  *
  * This program will make sure the user has correct styling
  * It will also print out where there are styling problems

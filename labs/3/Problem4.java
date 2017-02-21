@@ -28,6 +28,7 @@ public class Problem4 {
       }
     }
     
+    // prints out n
     System.out.println("The largest value of n so that n^3 " 
     + "< 12,000 is: " + n);
   }

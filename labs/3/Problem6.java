@@ -25,18 +25,37 @@ public class Problem6 {
     
   }
   
-  // will check if number is palindrome
+  /**
+  * isPalindrome
+  * 
+  * This function will check if a number is palindrome an example
+  * of this is 232 is plalindrome while 223 is not
+  * 
+  * Parameters:
+  * number: the number which will be checked if it is palindrome
+  * 
+  * Return value: will return true if it is palindrome
+  */
   public static boolean isPalindrome(int number) {
     int reverseNumber = reverse(number);
-    
+    // will compare the two numbers
     if(reverseNumber == number)
       return true;
     else
       return false;
     
   }
-  
-  // Return the reversal of an integer, i.e., reverse(456) returns 654
+   
+  /**
+  * reverse
+  * 
+  * This function will take the number that is given and reverse it
+  * 
+  * Parameters:
+  *  number: the number which will be reversed
+  * 
+  * Return value: will return the reversed number
+  */
   public static int reverse(int number) {
     int rNumber;
     

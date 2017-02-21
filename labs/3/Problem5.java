@@ -27,6 +27,17 @@ public class Problem5 {
   // This will take a number from the user and return the sum
   // of the digits added up for example sumDigits(234) will
   // return 9 because (2 + 3 +4) is 9
+  /**
+  * sumDigits
+  * 
+  * This function will compute the sum of the digits the user
+  * passing through
+  * 
+  * Parameters:
+  *  :n the number which will broken down into parts then 
+  *              added up to find the sum of the digits
+  * Return value: will return the value of the sum of the digits
+  */
   public static int sumDigits(long n) {
     int sum = 0;
     

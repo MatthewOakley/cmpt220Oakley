@@ -36,7 +36,7 @@ public class Driver_lab3 {
       // calcluates (|x1-x2|p+|y1-y2|p)1/p
       ans = Math.pow((Math.pow(Math.abs(x1 - x2),p) 
       + Math.pow(Math.abs(y1 - y2),p)),(1/p));
-      System.out.println("ans: " + ans);
+      System.out.println(ans);
     }
   }
 }

@@ -24,9 +24,6 @@ public class Problem5 {
     + " is: " + sum);
   }
   
-  // This will take a number from the user and return the sum
-  // of the digits added up for example sumDigits(234) will
-  // return 9 because (2 + 3 +4) is 9
   /**
   * sumDigits
   * 

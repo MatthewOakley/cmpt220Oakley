@@ -6,7 +6,7 @@
  * due date: February 28, 2017   
  * version: 1  
  *
- * This program will display fahrenheit and celsius temps
+ * This program will count the amount of letters in a string of text
  */
 
 import java.util.Scanner;

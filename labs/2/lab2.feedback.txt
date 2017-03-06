@@ -1,0 +1,24 @@
+9 pts
+
+Matthew, 
+
+About your programs...
+
+Functionality
+
+- Could not test functionality because programs cannot be compiled. -1pt
+
+Please make sure you read the problems well; follow instructions.
+
+
+Style Check
+
+- All programs have good style. However, when you break a line into two
+  segments into a new line you must use double indentation. Ask me in class.
+
+Please make sure you follow the style guidelines and that your programs can be
+compiled using javac. Penalties will be higher as the semester moves forward.
+
+Peace,
+
+- Dr. Rivas

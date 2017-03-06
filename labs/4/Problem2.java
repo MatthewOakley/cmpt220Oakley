@@ -22,7 +22,7 @@ public class Problem2 {
     int num = countLetters(text);
     
     System.out.println("The string " + text + " has " + num 
-    + " letter(s).");
+        + " letter(s).");
   }
   
   /**

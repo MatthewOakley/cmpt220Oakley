@@ -2,11 +2,11 @@
  * file: Problem3.java 
  * author: Matthew Oakley 
  * course: CMPT 220-201
- * assignment: project 5.9
+ * assignment: problem 7.9
  * due date: February 28, 2017   
  * version: 1  
  *
- * This program will find the smallest number in a array
+ * This program will find the smallest number in an array
  */
 
 import java.util.Scanner;

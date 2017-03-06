@@ -2,7 +2,7 @@
  * file: Problem2.java 
  * author: Matthew Oakley 
  * course: CMPT 220-201
- * assignment: project 6.20
+ * assignment: problem 6.20
  * due date: February 28, 2017   
  * version: 1  
  *

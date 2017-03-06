@@ -2,7 +2,7 @@
  * file: Problem1.java 
  * author: Matthew Oakley 
  * course: CMPT 220-201
- * assignment: project 6.8
+ * assignment: problem 6.8
  * due date: February 28, 2017   
  * version: 1  
  *
@@ -13,9 +13,9 @@ public class Problem1 {
   public static void main(String [] args) {
     
     // celsius
-    System.out.println("Celsius\tFahrenheit");
+    System.out.println("Celsius\t\tFahrenheit");
     for(int i = 40; i >30; i--)
-      System.out.println(i + "\t" + celsiusToFahrenheit(i) );
+      System.out.println(i + "\t\t" + celsiusToFahrenheit(i) );
     
     // gives a good amount of spacing
     System.out.println("\n");
@@ -23,7 +23,7 @@ public class Problem1 {
     // fahrenheit
      System.out.println("Fahrenheit\tCelsius");
     for(int i = 120; i >20; i -= 10)
-      System.out.println(i + "\t" + fahrenheitToCelsius(i) );
+      System.out.println(i + "\t\t" + fahrenheitToCelsius(i) );
     
   }
   

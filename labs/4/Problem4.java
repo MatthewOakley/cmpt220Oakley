@@ -6,7 +6,9 @@
  * due date: February 28, 2017   
  * version: 1  
  *
- * This program sort an array using bubble sort
+ * Joke: https://gfycat.com/BrownImmediateEquestrian 
+ *
+ * This program will sort an array using bubble sort
  */
 
 import java.util.Scanner;

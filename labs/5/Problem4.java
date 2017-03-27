@@ -1,5 +1,5 @@
 /**
- * file: Problem3.java 
+ * file: Problem4.java 
  * author: Matthew Oakley 
  * course: CMPT 220-201
  * assignment: problem 8.13

@@ -6,7 +6,7 @@
  * due date: March 28, 2017   
  * version: 1  
  *
- * This program sorts using selection sort largest to smallest
+ * This program merges two different sorted arrays
  */
 
 import java.util.Scanner;
@@ -83,7 +83,8 @@ public class Problem2{
     int i = 0;
     int j = 0;
     
-    System.out.println("L1: " + list1.length + " L2: " + list2.length);
+    // testing code
+    // System.out.println("L1: " + list1.length + " L2: " + list2.length);
     
     for(int q = 0; q < (list1.length+list2.length); q++){
       
@@ -119,9 +120,9 @@ public class Problem2{
         i++;
       }
       
-      System.out.println("I: " + i + ", J: " + j);
-      
-      printArray(merged);
+      // testing code
+      // System.out.println("I: " + i + ", J: " + j);
+      // printArray(merged);
     }
     
     return merged;

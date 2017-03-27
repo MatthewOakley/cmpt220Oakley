@@ -6,7 +6,7 @@
  * due date: March 28, 2017   
  * version: 1  
  *
- * This program sorts using selection sort largest to smallest
+ * This program partitions a list using a pivot
  */
 
 import java.util.Scanner;
@@ -39,7 +39,13 @@ public class Problem3{
   }
   
   /*
+   * partition
    *
+   * Parmeters: 
+   *   list: This is the list that will be partitioned
+   *
+   * Return Value:
+   *   A list that is partitioned around a pivot
    */
   public static int[] partition(int[] list){
     

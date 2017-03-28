@@ -44,6 +44,8 @@ public class Problem4{
   /*
    * locateLargest
    *
+   * This progam will locate the largest value in a 2D array
+   *
    * Prameters:
    *   a: This is the array that will be searched for largest value
    *

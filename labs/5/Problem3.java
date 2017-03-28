@@ -41,6 +41,9 @@ public class Problem3{
   /*
    * partition
    *
+   * This function will partition a list based on the first index
+   *   The first index will be used as a pivot value
+   *
    * Parmeters: 
    *   list: This is the list that will be partitioned
    *

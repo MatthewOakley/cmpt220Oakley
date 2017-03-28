@@ -49,6 +49,20 @@ public class Driver_prj1{
     System.out.println();
   }
   
+  /*
+   * convolveVectors
+   *
+   * This program will take the vectors and flip one then will
+   *   use convolution on those vectors so get a new vector
+   *
+   * Prameters:
+   *   vFirst: This is the first vectors
+   *   vSecond: This the second vector
+   *
+   * Return Value: This is return a new array that is the two
+   *   convoluted vectors
+   */
+  publi
   public static double[] convolveVectors(double[] vFirst, double[] vSecond) {
     double[] vResult = new double[(vFirst.length + vSecond.length) - 1];
     // write your code here

@@ -87,8 +87,6 @@ public class Driver_prj1{
           vResult[index] += vFirst[index - shift] * vSecond[shift];
         }
       }
-      // testing code
-      // System.out.println("TEST: " + Arrays.toString(vResult));
     }
     
     return vResult;  

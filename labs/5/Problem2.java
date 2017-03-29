@@ -83,9 +83,6 @@ public class Problem2{
     int i = 0;
     int j = 0;
     
-    // testing code
-    // System.out.println("L1: " + list1.length + " L2: " + list2.length);
-    
     for(int q = 0; q < (list1.length+list2.length); q++){
       
        // list1 reached end so fill rest with list2
@@ -119,12 +116,7 @@ public class Problem2{
         merged[q] = list1[i];
         i++;
       }
-      
-      // testing code
-      // System.out.println("I: " + i + ", J: " + j);
-      // printArray(merged);
     }
-    
     return merged;
   }
   

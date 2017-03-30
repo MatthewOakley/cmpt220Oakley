@@ -87,7 +87,6 @@ public class Problem1 {
         list[currentMinIndex] = list[i];
         list[i] = currentMin;
       }
-    }
-    
+    } 
   }
 }

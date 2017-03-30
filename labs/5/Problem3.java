@@ -80,7 +80,6 @@ public class Problem3{
         shift++;
       }
     }
-    
     return partitionList;
   }
 }

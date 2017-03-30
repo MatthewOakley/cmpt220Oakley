@@ -10,7 +10,6 @@
  */
  
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Driver_prj1{
   public static void main(String[] args){
@@ -62,11 +61,9 @@ public class Driver_prj1{
    * Return Value: This is return a new array that is the two
    *   convoluted vectors
    */
-  publi
   public static double[] convolveVectors(double[] vFirst, double[] vSecond) {
     double[] vResult = new double[(vFirst.length + vSecond.length) - 1];
-    // write your code here
-    
+
     // flips second array
     for(int k = 0; k < vSecond.length / 2; k++){
       double temp = vSecond[k];
@@ -88,7 +85,6 @@ public class Driver_prj1{
         }
       }
     }
-    
     return vResult;  
   }
 }

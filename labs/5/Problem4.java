@@ -10,12 +10,10 @@
  */
  
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Problem4{
   public static void main(String[] args){
     Scanner input = new Scanner(System.in);
-    
     
     System.out.print("Enter the number of rows and "
         + "columns of the array: ");
@@ -30,7 +28,6 @@ public class Problem4{
     
     for(int i = 0; i < row; i++){
       for(int j = 0; j < column; j++){
-        
         array[i][j] = input.nextDouble();
       }
     }
@@ -72,8 +69,6 @@ public class Problem4{
         }
       }
     }
-    
     return cords;
-    
   }
 }

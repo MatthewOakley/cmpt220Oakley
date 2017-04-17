@@ -18,7 +18,7 @@ public class Problem11 {
     // Create a Scanner
     Scanner input = new Scanner(System.in);
     
-    double amount - 0.0;
+    double amount = 0.0;
     
     // Receive the amount
     do {

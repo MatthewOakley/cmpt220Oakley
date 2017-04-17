@@ -1,4 +1,14 @@
-
+/**
+ * file: Problem2.java 
+ * author: Matthew Oakley 
+ * course: CMPT 220-201
+ * assignment: problem 9.13
+ * due date: April 18, 2017   
+ * version: 1  
+ *
+ * This program revolves around a Location class
+ */
+ 
 import java.util.Scanner;
 
 public class Problem2{

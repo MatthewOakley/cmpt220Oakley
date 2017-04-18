@@ -1,0 +1,19 @@
+10 pts
+
+Matthew,
+
+About your programs...
+
+Functionality
+
+- All programs function correctly as required.
+
+
+Style Check
+
+- Your programs seem to pass the style check. Good job!
+
+
+Peace,
+
+- Dr. Rivas

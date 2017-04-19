@@ -1,9 +1,9 @@
 public class Queue {
   
-  private int[] elements = new int[DEFAULT_SIZE];
-  private int size = 8;
   private static final int DEFAULT_SIZE = 8;
-  private int fill = 0;
+  private int size = DEFAULT_SIZE;
+  private int[] elements = new int[size];
+  private int index = 0;
   
   
   // default constructor
@@ -12,22 +12,26 @@ public class Queue {
   }
   
   public void enqueue(int value){
-    int[] newElements = new int[size + 1];
     
-    // add new element to queue
-    this.fill++;
+    elements[index] = value;
+    
+    index++;
+    
+    if(index + 2 == size)
+      size *= 2;
+    
+    int[] newElements = new int[size];
     
     // will go through the array and do a deep copy
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < index; i++){
       newElements[i] = elements[i];
+      System.out.println("1: " + newElements[i] + " 2: " + elements[i]);
     }
+    System.out.println("--------------------");
+    System.out.println(newElements.length);
+    System.out.println("--------------------");
     
-    if(this.size == this.fill){
-      this.size++;
-    }
     
-    // sets last index to the user input
-    newElements[size - 1] = value;
     
     // clears location of old elements and sets new location
     elements = null;
@@ -37,7 +41,7 @@ public class Queue {
   //dequeue(){}
   
   public boolean empty(){
-    if(this.fill == 0)
+    if(index == 0)
       return true;
     else
       return false;

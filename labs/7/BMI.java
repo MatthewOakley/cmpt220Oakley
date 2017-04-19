@@ -1,4 +1,22 @@
+/**
+ * file: BMI.java 
+ * author: Matthew Oakley 
+ * course: CMPT 220-201
+ * assignment: problem 10.2
+ * due date: April 25, 2017   
+ * version: 1  
+ *
+ * This is the BMI class which can be used to calculate
+ * the current BMI
+ */
 
+/**
+ * BMI
+ * 
+ * This class implements a BMI which stores all the needed
+ * information to calculate BMI and show current status
+ *
+ */
 public class BMI{
   
   private String name = "";
@@ -103,6 +121,17 @@ public class BMI{
     this.name = value;
   }
   
+  /**
+   * getName
+   *
+   * This will return the current name
+   *
+   * Parameters:
+   *   none
+   *
+   * Return value:
+   *   the current value of name
+   */
   public String getName(){
     return this.name;
   }
@@ -122,6 +151,17 @@ public class BMI{
     this.age = value;
   }
   
+  /**
+   * getAge
+   *
+   * This will return the current age
+   *
+   * Parameters:
+   *   none
+   *
+   * Return value:
+   *   the current value of age
+   */
   public int getAge(){
     return this.age;
   }
@@ -141,6 +181,17 @@ public class BMI{
     this.weight = value;
   }
   
+  /**
+   * getWeight
+   *
+   * This will return the current weight
+   *
+   * Parameters:
+   *   none
+   *
+   * Return value:
+   *   the current value of weight
+   */
   public double getWeight(){
     return this.weight;
   }
@@ -160,6 +211,17 @@ public class BMI{
     this.height = value;
   }
   
+  /**
+   * getHeight
+   *
+   * This will return the current height
+   *
+   * Parameters:
+   *   none
+   *
+   * Return value:
+   *   the current value of height
+   */
   public double getHeight(){
     return this.height;
   }
@@ -179,6 +241,17 @@ public class BMI{
     this.feet = value;
   }
   
+  /**
+   * getFeet
+   *
+   * This will return the current feet
+   *
+   * Parameters:
+   *   none
+   *
+   * Return value:
+   *   the current value of feet
+   */
   public double getFeet(){
     return this.feet;
   }
@@ -198,6 +271,17 @@ public class BMI{
     this.inches = value;
   }
   
+  /**
+   * getInches
+   *
+   * This will return the current inches
+   *
+   * Parameters:
+   *   none
+   *
+   * Return value:
+   *   the current value of inches
+   */
   public double getInches(){
     return this.inches;
   }

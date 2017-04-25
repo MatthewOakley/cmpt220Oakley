@@ -48,25 +48,33 @@ public class Queue {
   public void enqueue(int value){
     
     // if the index size nears the end of the queue it will make the size bigger
-    if(index + 1 == size)
+    if(index + 1 == size){
       size *= 2;
+      // declares a new queue that will store all the elements
+      int[] newElements = new int[size];
+      
+      // will go through the array and do a deep copy
+      for(int i = 0; i < index; i++)
+        newElements[i] = elements[i];
     
-    // declares a new queue that will store all the elements
-    int[] newElements = new int[size];
+      // add the newest elements to the queue
+      newElements[index] = value;
+      
+      
+      // moves the next position the next number will be at
+      index++;
     
-    // will go through the array and do a deep copy
-    for(int i = 0; i < index; i++)
-      newElements[i] = elements[i];
+      // clears location of old elements and sets new location
+      elements = null;
+      elements = newElements;
+    }
+    // This is if a new queue size does not need to be called
+    else {
+      
+      elements[index] = value;
+      index++;
+    }
     
-    // add the newest elements to the queue
-    newElements[index] = value;
-    
-    // moves the next position the next number will be at
-    index++;
-    
-    // clears location of old elements and sets new location
-    elements = null;
-    elements = newElements;
   }
   
   /**

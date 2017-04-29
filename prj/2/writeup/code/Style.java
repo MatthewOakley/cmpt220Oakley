@@ -7,7 +7,7 @@
  * version: 0.2  
  *
  * This program will make sure the user has correct styling
- * It will also print out where there are styling problems
+ * It will also print out if there are styling problems
  * This will only work for Java programs
  */
 
@@ -19,7 +19,12 @@ import java.io.PrintWriter;
 
 public class Style {
   public static void main(String [] args) throws Exception {
-
+    
+    if(args.length != 1){
+      System.out.println("Correct Usage: 'java Style <file name>'");
+      return;
+    }
+    
     String fileName = args[0];
     
     // if user includes .java or not will append it to end of file
@@ -55,6 +60,13 @@ public class Style {
     // the amount of lines 100+
     int lines100 = 0;
     
+    // first value is how far indented 2 == 2 spaces
+    // the second value is how many single indents for example if()
+    int[] indents = {0 , 0};
+    
+    // will count how many bad indents
+    int bIndents = 0;
+    
     // will check the code for any style problems
     while(input.hasNext()) {
       line = input.nextLine();
@@ -68,6 +80,12 @@ public class Style {
       // if character count >= 80 will count how many lines
       else if (charCount(line) == 1)
         lines80++;
+      
+      // this will keep track of the indentation
+      if(!(indentKeeper(indnets, line)))
+        bIndnets++;
+      
+      
     }
 
     // this is where the data will be outputted to a file named
@@ -79,18 +97,92 @@ public class Style {
     writer.println("Tab Count: " + tabCount);
     writer.println("Lines with 100+ characters: " + lines100);
     writer.println("Lines with 80-99 characters: " + lines80);
+    writer.println("Bad Indents: " + bIndents);
     writer.close();
     
   }
   
-  /*
+  /**
+   * indentKeeper
+   * 
+   * This will check and make sure the user has proper indentation
+   *
+   * Parameters:
+   *   lineText: This is the line that will be checked for amount of indents
+   *   amount: This will track how far indented the program is
+   *
+   * Return value: This will return:
+   *   True:  Proper Indentation
+   *   False: Bad Indentation
+   */
+  public static boolean indentKeeper(int[] inDent, String lineText){
+    
+    // counts the number of spaces before text
+    int spaceCount = 0;
+    
+    // this will count the number of spaces before any text
+    for(int i = 0; i < lineText.length(); i++){
+      
+      // still has more spaces
+      if(isSpace(lineText.charAt(i)))
+        spaceCount++;
+      // this means the proper amount of spaces
+      else if (spaceCount == inDent[0])
+        return true;
+      else
+        return false;
+    }
+    
+    // no spaces needed
+    if(spaceCount == inDent[0])
+      return true;
+    else
+      return false;
+  }
+  
+  /**
+   * indenter
+   * 
+   * This will increase or decrease the indentation level
+   *
+   * Parameters:
+   *   lineText: This is the line that will be checked for amount of indents
+   *
+   * Return value: None
+   */
+  public static void indenter(int[] indents, String lineText){
+    
+    // if there is an opening brace
+    boolean openBrace = false;
+    
+    // will search for a closing brace
+    for(int i = 0; i < lineText.length(); i++){
+      // unexpected opening brace
+      if(lineText.charAt(i) == '{')
+        openBrace = true;
+      // more than one open brace
+      else if(openBrace && lineText.charAt(i) == '{')
+        indents[0] += 2; // shifts indentation two to the right
+      // brace pair found
+      else if (openBrace && lineText.charAt(i) == '}')
+        openBrace = false;
+      // extra closing brace
+      else if(lineText.charAt(i) == '}')
+        indents -= 2; // shifts indentation 2 to the left
+        
+    }
+    
+    // will search for while statement
+  }
+  
+  /**
    * tabReader
    * 
    * This will take in a line of text and will give back 
    * how many tabs are in that line
    *
    * Parameters:
-   *  :lineText the line of text that will be scanned for tabs 
+   *  lineText: the line of text that will be scanned for tabs 
    *
    * Return value: will return the number of tabs found
    */
@@ -108,7 +200,28 @@ public class Style {
     return counter;
   }
   
-  /*
+  /**
+   * isSpace
+   * 
+   * This will check if a value is a ' '
+   *
+   * Parameters:
+   *  spot: the value that will be checked
+   *
+   * Return value:
+   *   True:  Value is space
+   *   False: Value is not space
+   */
+  public static boolean isSpace(char spot){
+    
+    // will check if the spot is a space
+    if(spot == ' ')
+      return true;
+    else
+      return false;
+  }
+  
+  /**
    * charCount
    * 
    * This will take in a line of text and will give back 

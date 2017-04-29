@@ -15,7 +15,9 @@ public class Problem3{
   public static void main(String[] args){
     
     // sets long max value to a string
-    String longMax = Long.toString(Long.MAX_VALUE);
+    long start = (long)Math.ceil(Math.sqrt(Long.MAX_VALUE));
+    
+    String longMax = Long.toString(start);
     
     // makes n set to maximum long value
     BigInteger n = new BigInteger(longMax);

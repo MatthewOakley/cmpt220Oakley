@@ -20,6 +20,7 @@ import java.io.PrintWriter;
 public class Style {
   public static void main(String [] args) throws Exception {
     
+    // makes sure the user does correct arguments
     if(args.length != 1){
       System.out.println("Correct Usage: 'java Style <file name>'");
       return;
@@ -36,6 +37,7 @@ public class Style {
     if(length <= 5) {
       fileName = fileName + ".java";
     }
+    
     // if users input did not include .java extension it will apend it
     else if (!(fileName.substring(length - 5,length).equals(".java"))) {
       System.out.println(fileName.substring(length - 5,length));
@@ -81,9 +83,15 @@ public class Style {
       else if (charCount(line) == 1)
         lines80++;
       
+      System.out.println("|" + line + "|" + line.length());
+      
       // this will keep track of the indentation
-      if(!(indentKeeper(indnets, line)))
-        bIndnets++;
+      if(!(indentKeeper(indents, line))){
+        bIndents++;
+        System.out.println("BAD!");
+      }
+      else
+        System.out.println("Good!");
       
       
     }
@@ -125,8 +133,7 @@ public class Style {
       
       // still has more spaces
       if(isSpace(lineText.charAt(i)))
-        spaceCount++;
-      // this means the proper amount of spaces
+        spaceCount++; // this means the proper amount of spaces
       else if (spaceCount == inDent[0])
         return true;
       else
@@ -134,10 +141,13 @@ public class Style {
     }
     
     // no spaces needed
+    /*
     if(spaceCount == inDent[0])
       return true;
     else
       return false;
+    */
+    return true;
   }
   
   /**
@@ -158,18 +168,19 @@ public class Style {
     // will search for a closing brace
     for(int i = 0; i < lineText.length(); i++){
       // unexpected opening brace
-      if(lineText.charAt(i) == '{')
-        openBrace = true;
+      if(lineText.charAt(i) == '{'){
+        //openBrace = true;
+        indents[0] += 2;
+      }
       // more than one open brace
-      else if(openBrace && lineText.charAt(i) == '{')
-        indents[0] += 2; // shifts indentation two to the right
+      //else if(openBrace && lineText.charAt(i) == '{')
+        //indents[0] += 2; // shifts indentation two to the right
       // brace pair found
-      else if (openBrace && lineText.charAt(i) == '}')
-        openBrace = false;
+      //else if (openBrace && lineText.charAt(i) == '}')
+        //openBrace = false;
       // extra closing brace
       else if(lineText.charAt(i) == '}')
-        indents -= 2; // shifts indentation 2 to the left
-        
+        indents[0] -= 2; // shifts indentation 2 to the left
     }
     
     // will search for while statement

@@ -93,6 +93,8 @@ public class Style {
       else
         System.out.println("Good!");
       
+      indenter(indents, line);
+      
       
     }
 
@@ -117,7 +119,7 @@ public class Style {
    *
    * Parameters:
    *   lineText: This is the line that will be checked for amount of indents
-   *   amount: This will track how far indented the program is
+   *   inDent: This will track how far indented the program is
    *
    * Return value: This will return:
    *   True:  Proper Indentation
@@ -134,10 +136,14 @@ public class Style {
       // still has more spaces
       if(isSpace(lineText.charAt(i)))
         spaceCount++; // this means the proper amount of spaces
+      else if( (spaceCount == inDent[0] - 2) && lineText.charAt(i) == '}')
+        return true; // this means closing brace on line alone is in correct spot
+      else if(spaceCount == inDent[0] && lineText.charAt(i) == '}')
+        return false; // this means closing brace is two to the left and wrong
       else if (spaceCount == inDent[0])
-        return true;
+        return true; // this means that the line has good indenation
       else
-        return false;
+        return false; // line ends too early: bad indentation
     }
     
     // no spaces needed
@@ -153,37 +159,86 @@ public class Style {
   /**
    * indenter
    * 
-   * This will increase or decrease the indentation level
+   * This will increase or decrease the indentation level based
+   * on each line of the user's source code
    *
    * Parameters:
    *   lineText: This is the line that will be checked for amount of indents
+   *   indents: This is what will store the amount of indents needed per line
    *
    * Return value: None
    */
   public static void indenter(int[] indents, String lineText){
     
-    // if there is an opening brace
-    boolean openBrace = false;
+    // will see if the line has a one line indent
+    boolean isWhile = false;
+    boolean isFor = false;
+    boolean isIf = false;
+    boolean isElseIf = false;
+    boolean isElse = false;
     
-    // will search for a closing brace
-    for(int i = 0; i < lineText.length(); i++){
-      // unexpected opening brace
-      if(lineText.charAt(i) == '{'){
-        //openBrace = true;
-        indents[0] += 2;
+    
+    // the length of the text this will also save computations
+    int textLen = lineText.length();
+    
+    // keeps orginal indent to see if there is any brace
+    int orgIndents = indents[0];
+    
+    // will count the number of spaces
+    int spaces = 0;
+    
+    // used to see if there is any text in the string
+    boolean noText = true;
+    
+    // will search for any indenting phrases
+    for(int i = 0; i < textLen; i++){
+      
+      if(lineText.charAt(i) == ' ' && noText)
+        spaces++;
+      else
+        noText = false;
+      if(!(noText)){
+        // if the first text in a line is a 'while'
+        if(textLen > spaces + 5 && "while".equals(lineText.substring(spaces, spaces + 5)))
+          isWhile = true;
+        
+        // if the first text in a line is a 'for'
+        if(textLen > spaces + 3 && "for".equals(lineText.substring(spaces, spaces + 3)))
+          isFor = true;
+        
+        // if the first text in a line is a 'if'
+        if(textLen > spaces + 2 && "if".equals(lineText.substring(spaces, spaces + 2)))
+          isIf = true;
+        
+        // if the first text in a line is a 'else if'
+        if(textLen > spaces + 7 && "else if".equals(lineText.substring(spaces, spaces + 7)))
+          isElseIf = true;
+        
+        // if the first text in a line is a 'else'
+        if(textLen > spaces + 4 && "else".equals(lineText.substring(spaces, spaces + 4)))
+          isElse = true;
       }
-      // more than one open brace
-      //else if(openBrace && lineText.charAt(i) == '{')
-        //indents[0] += 2; // shifts indentation two to the right
-      // brace pair found
-      //else if (openBrace && lineText.charAt(i) == '}')
-        //openBrace = false;
-      // extra closing brace
+      
+      // unexpected opening brace
+      if(lineText.charAt(i) == '{')
+        indents[0] += 2; // shifts indentation 2 to the right
       else if(lineText.charAt(i) == '}')
         indents[0] -= 2; // shifts indentation 2 to the left
     }
     
-    // will search for while statement
+    // will check if curly braces were added if not makes it
+    // one line indent
+    if(orgIndents == indents[0]&& isWhile == true)
+      indents[1]++;
+    else if(orgIndents == indents[0]&& isFor == true)
+      indents[1]++;
+    else if(orgIndents == indents[0]&& isIf == true)
+      indents[1]++;
+    else if(orgIndents == indents[0]&& isElseIf == true)
+      indents[1]++;
+    else if(orgIndents == indents[0]&& isIf == true)
+      indents[1]++;
+    
   }
   
   /**

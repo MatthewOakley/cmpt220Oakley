@@ -1,0 +1,90 @@
+LINE: 1 Good!	|/**|3	Next line indent: 1
+LINE: 2 Good!	| * file: Driver_prj1.java |26	Next line indent: 1
+LINE: 3 Good!	| * author: Matthew Oakley |26	Next line indent: 1
+LINE: 4 Good!	| * course: CMPT 220-201|23	Next line indent: 1
+LINE: 5 Good!	| * assignment: project 1|24	Next line indent: 1
+LINE: 6 Good!	| * due date: March 28, 2017   |30	Next line indent: 1
+LINE: 7 Good!	| * version: 1  |15	Next line indent: 1
+LINE: 8 Good!	| *|2	Next line indent: 1
+LINE: 9 Good!	| * This program will do convolution on a vector|47	Next line indent: 1
+LINE: 10 Good!	| */|3	Next line indent: 0
+LINE: 11 Good!	| |1	Next line indent: 0
+LINE: 12 Good!	|import java.util.Scanner;|25	Next line indent: 0
+LINE: 13 Good!	||0	Next line indent: 0
+LINE: 14 Good!	|public class Driver_prj1{|25	Next line indent: 2
+LINE: 15 Good!	|  public static void main(String[] args){|41	Next line indent: 4
+LINE: 16 Good!	|    |4	Next line indent: 4
+LINE: 17 Good!	|    Scanner input = new Scanner(System.in);|43	Next line indent: 4
+LINE: 18 Good!	|    |4	Next line indent: 4
+LINE: 19 Good!	|    int len1 = 0;|17	Next line indent: 4
+LINE: 20 Good!	|    int len2 = 0;|17	Next line indent: 4
+LINE: 21 Good!	|    |4	Next line indent: 4
+LINE: 22 Good!	|    len1 = input.nextInt();|27	Next line indent: 4
+LINE: 23 Good!	|    len2 = input.nextInt();|27	Next line indent: 4
+LINE: 24 Good!	|    |4	Next line indent: 4
+LINE: 25 Good!	|    // declares array and inputs the numbers|44	Next line indent: 4
+LINE: 26 Good!	|    double[] array1 = new double[len1];|39	Next line indent: 4
+LINE: 27 Good!	|    for(int i = 0; i < len1; i++)|33	Next line indent: 4
+LINE: 28 Good!	|      array1[i] = input.nextDouble();|37	Next line indent: 4
+LINE: 29 Good!	|    |4	Next line indent: 4
+LINE: 30 Good!	|    double[] array2 = new double[len2];|39	Next line indent: 4
+LINE: 31 Good!	|    for(int j = 0; j < len2; j++)|33	Next line indent: 4
+LINE: 32 Good!	|      array2[j] = input.nextDouble();|37	Next line indent: 4
+LINE: 33 Good!	|    |4	Next line indent: 4
+LINE: 34 Good!	|    // gets convoled vectors|28	Next line indent: 4
+LINE: 35 Good!	|    double[] result = convolveVectors(array1, array2);|54	Next line indent: 4
+LINE: 36 Good!	|    |4	Next line indent: 4
+LINE: 37 Good!	|    // sets an integer array|28	Next line indent: 4
+LINE: 38 Good!	|    int[] resultInt = new int[result.length];|45	Next line indent: 4
+LINE: 39 Good!	|    |4	Next line indent: 4
+LINE: 40 Good!	|    // fill the new array with round numbers|44	Next line indent: 4
+LINE: 41 Good!	|    for(int m = 0; m < (len1 + len2 -1); m++)|45	Next line indent: 4
+LINE: 42 Good!	|      resultInt[m] = (int)Math.round(result[m]);|48	Next line indent: 4
+LINE: 43 Good!	|    |4	Next line indent: 4
+LINE: 44 Good!	|    // displays the array|25	Next line indent: 4
+LINE: 45 Good!	|    for(int q = 0; q < resultInt.length; q++)|45	Next line indent: 4
+LINE: 46 Good!	|      System.out.print(resultInt[q] + " ");|43	Next line indent: 4
+LINE: 47 Good!	|    |4	Next line indent: 4
+LINE: 48 Good!	|    System.out.println();|25	Next line indent: 4
+LINE: 49 Good!	|  }|3	Next line indent: 2
+LINE: 50 Good!	|  |2	Next line indent: 2
+LINE: 51 Good!	|  /*|4	Next line indent: 3
+LINE: 52 Good!	|   * convolveVectors|20	Next line indent: 3
+LINE: 53 Good!	|   *|4	Next line indent: 3
+LINE: 54 Good!	|   * This program will take the vectors and flip one then will|62	Next line indent: 3
+LINE: 55 Good!	|   *   use convolution on those vectors so get a new vector|59	Next line indent: 3
+LINE: 56 Good!	|   *|4	Next line indent: 3
+LINE: 57 Good!	|   * Prameters:|15	Next line indent: 3
+LINE: 58 Good!	|   *   vFirst: This is the first vectors|40	Next line indent: 3
+LINE: 59 Good!	|   *   vSecond: This the second vector|38	Next line indent: 3
+LINE: 60 Good!	|   *|4	Next line indent: 3
+LINE: 61 Good!	|   * Return Value: This is return a new array that is the two|61	Next line indent: 3
+LINE: 62 Good!	|   *   convoluted vectors|25	Next line indent: 3
+LINE: 63 Good!	|   */|5	Next line indent: 2
+LINE: 64 Good!	|  public static double[] convolveVectors(double[] vFirst, double[] vSecond) {|77	Next line indent: 4
+LINE: 65 Good!	|    double[] vResult = new double[(vFirst.length + vSecond.length) - 1];|72	Next line indent: 4
+LINE: 66 Good!	||0	Next line indent: 4
+LINE: 67 Good!	|    // flips second array|25	Next line indent: 4
+LINE: 68 Good!	|    for(int k = 0; k < vSecond.length / 2; k++){|48	Next line indent: 6
+LINE: 69 Good!	|      double temp = vSecond[k];|31	Next line indent: 6
+LINE: 70 Good!	|      vSecond[k] = vSecond[vSecond.length - k - 1];|51	Next line indent: 6
+LINE: 71 Good!	|      vSecond[vSecond.length - k - 1] = temp;|45	Next line indent: 6
+LINE: 72 Good!	|    }|5	Next line indent: 4
+LINE: 73 Good!	|    |4	Next line indent: 4
+LINE: 74 Good!	|    // will go through the entire convolution process|53	Next line indent: 4
+LINE: 75 Good!	|    for(int index = 0; index < vResult.length; index++){|56	Next line indent: 6
+LINE: 76 Good!	|      // makes sure no garbage numbers are in the array|55	Next line indent: 6
+LINE: 77 Good!	|      vResult[index] = 0;|25	Next line indent: 6
+LINE: 78 Good!	|      // this is where shifting and multiplying happens|55	Next line indent: 6
+LINE: 79 Good!	|      for(int shift = 0; shift <= index; shift++){|50	Next line indent: 8
+LINE: 80 Good!	|        // will make sure it does not go out of bounds|54	Next line indent: 8
+LINE: 81 Good!	|        if( (index - shift >= 0) && ( (shift <= index) |55	Next line indent: 8
+LINE: 82 BAD!	|            && ( (index-shift < vFirst.length) |47	Next line indent: 8
+LINE: 83 BAD!	|            && ( shift < vSecond.length) ) ) ){|47	Next line indent: 10
+LINE: 84 Good!	|          vResult[index] += vFirst[index - shift] * vSecond[shift];|67	Next line indent: 10
+LINE: 85 Good!	|        }|9	Next line indent: 8
+LINE: 86 Good!	|      }|7	Next line indent: 6
+LINE: 87 Good!	|    }|5	Next line indent: 4
+LINE: 88 Good!	|    return vResult;  |21	Next line indent: 4
+LINE: 89 Good!	|  }|3	Next line indent: 2
+LINE: 90 Good!	|}|1	Next line indent: 0

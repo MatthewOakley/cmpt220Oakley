@@ -1,0 +1,4 @@
+Tab Count: 0
+Lines with 100+ characters: 0
+Lines with 80-99 characters: 0
+Bad Indents: 2

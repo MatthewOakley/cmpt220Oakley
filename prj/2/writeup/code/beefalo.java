@@ -1,6 +1,6 @@
 /**
-* This file is used for testing purposes
-*/
+ * This file is used for testing purposes
+ */
 
 public class beefalo {
   public static void main(String [] args) {

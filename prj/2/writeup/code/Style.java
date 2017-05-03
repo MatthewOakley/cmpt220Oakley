@@ -29,12 +29,22 @@ public class Style {
       return;
     }
     
+    // User looking for help
+    if(args[0].equalsIgnoreCase("help")){
+      System.out.println("Current Commands");
+      System.out.println("Help");
+      System.out.println("-------------");
+      System.out.println("How To Use");
+      System.out.println("-------------");
+      System.out.println("Correct Usage: java Style <file name> > data.txt");
+      System.out.println("Correct Usage: 'java Style <file name>");
+    }
+    
     String fileName = args[0];
     
     // if user includes .java or not will append it to end of file
     // more than .java
     int length = args[0].length();
-    System.out.println("Length: " + length);
     
     // user could not possibly have included .java extension
     if(length <= 5) {
@@ -46,10 +56,6 @@ public class Style {
       System.out.println(fileName.substring(length - 5,length));
       fileName = fileName + ".java";
     }
-    
-    // currently testing for valid extension
-    System.out.println("File full name from input: " + args[0]);
-    System.out.println("File full name post check: " + fileName);
     
     File file = new File(fileName);
     
@@ -72,6 +78,9 @@ public class Style {
     // will count how many bad indents
     int bIndents = 0;
     
+    // count the number of lines
+    int lineCount = 1;
+    
     // will check the code for any style problems
     while(input.hasNext()) {
       line = input.nextLine();
@@ -86,19 +95,23 @@ public class Style {
       else if (charCount(line) == 1)
         lines80++;
       
-      System.out.print("|" + line + "|" + line.length() + "\t");
+      System.out.print("LINE: " + lineCount + " ");
       
       // this will keep track of the indentation
       if(!(indentKeeper(indents, line))){
         bIndents++;
-        System.out.println("BAD!");
+        System.out.print("BAD!\t");
       }
       else
-        System.out.println("Good!");
+        System.out.print("Good!\t");
+      
+      System.out.print("|" + line + "|" + line.length() + "\t");
       
       indenter(indents, line);
       System.out.println("Next line indent: " + indents[0]);
       
+      // keeps track of how many lines
+      lineCount++;
     }
 
     // this is where the data will be outputted to a file named
@@ -200,7 +213,7 @@ public class Style {
     for(int i = 0; i < textLen; i++){
       
       // counts spaces before so it know where to start checking for statement
-      if(lineText.charAt(i) == ' ' && noText)
+      if(noText && lineText.charAt(i) == ' ')
         spaces++;
       else
         noText = false;
@@ -209,21 +222,17 @@ public class Style {
         // if the first text in a line is a 'while'
         if(textLen > spaces + 5 && "while".equals(lineText.substring(spaces, spaces + 5)))
           isWhile = true;
-        
         // if the first text in a line is a 'for'
-        if(textLen > spaces + 3 && "for".equals(lineText.substring(spaces, spaces + 3)))
+        else if(textLen > spaces + 3 && "for".equals(lineText.substring(spaces, spaces + 3)))
           isFor = true;
-        
         // if the first text in a line is a 'if'
-        if(textLen > spaces + 2 && "if".equals(lineText.substring(spaces, spaces + 2)))
+        else if(textLen > spaces + 2 && "if".equals(lineText.substring(spaces, spaces + 2)))
           isIf = true;
-        
         // if the first text in a line is a 'else if'
-        if(textLen > spaces + 7 && "else if".equals(lineText.substring(spaces, spaces + 7)))
+        else if(textLen > spaces + 7 && "else if".equals(lineText.substring(spaces, spaces + 7)))
           isElseIf = true;
-        
         // if the first text in a line is a 'else'
-        if(textLen > spaces + 4 && "else".equals(lineText.substring(spaces, spaces + 4)))
+        else if(textLen >= spaces + 4 && "else".equals(lineText.substring(spaces, spaces + 4)))
           isElse = true;
       }
       

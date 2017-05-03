@@ -142,6 +142,10 @@ public class Style {
         return false; // this means closing brace is two to the left and wrong
       else if (spaceCount == inDent[0])
         return true; // this means that the line has good indenation
+      else if (spaceCount - 2 == inDent[0] && inDent[1] > 0){
+        inDent[1]--; // amount of one line indents
+        return true; // valid indentation
+      }
       else
         return false; // line ends too early: bad indentation
     }
@@ -236,7 +240,7 @@ public class Style {
       indents[1]++;
     else if(orgIndents == indents[0]&& isElseIf == true)
       indents[1]++;
-    else if(orgIndents == indents[0]&& isIf == true)
+    else if(orgIndents == indents[0]&& isElse == true)
       indents[1]++;
     
   }
@@ -290,7 +294,7 @@ public class Style {
   /**
    * charCount
    * 
-   * This will take in a line of text and will give back 
+   * This will take in a line of text and will give back git push origin master
    * how many a value based on how large the line is
    *
    * Parameters:

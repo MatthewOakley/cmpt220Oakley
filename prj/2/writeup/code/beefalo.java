@@ -15,6 +15,36 @@ public class beefalo {
       alos
     }
     
+    while(){
+      dwadaw
+      wdaawd
+      wadaw
+    }
+    
+    for(wadawdawdaw){
+      dwad
+      dwadaw
+      wdawdaw
+    }
+    
+    for()
+      wdadawd
+    
+    while()
+      wdadawd
+    
+    if(dwada){
+      dawd
+      wda
+      adw
+    }
+    else if(wdadw){
+      wdaawd
+    }
+    else if(dwadaw)
+      wadawd
+    else
+      wadawdaw
     
   }
 }

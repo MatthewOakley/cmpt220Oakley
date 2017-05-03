@@ -18,6 +18,9 @@ import java.io.*;
 import java.io.PrintWriter;
 
 public class Style {
+  
+  public static boolean inComments = false;
+  
   public static void main(String [] args) throws Exception {
     
     // makes sure the user does correct arguments
@@ -83,7 +86,7 @@ public class Style {
       else if (charCount(line) == 1)
         lines80++;
       
-      System.out.println("|" + line + "|" + line.length());
+      System.out.print("|" + line + "|" + line.length() + "\t");
       
       // this will keep track of the indentation
       if(!(indentKeeper(indents, line))){
@@ -94,7 +97,7 @@ public class Style {
         System.out.println("Good!");
       
       indenter(indents, line);
-      
+      System.out.println("Next line indent: " + indents[0]);
       
     }
 
@@ -181,7 +184,6 @@ public class Style {
     boolean isElseIf = false;
     boolean isElse = false;
     
-    
     // the length of the text this will also save computations
     int textLen = lineText.length();
     
@@ -197,10 +199,12 @@ public class Style {
     // will search for any indenting phrases
     for(int i = 0; i < textLen; i++){
       
+      // counts spaces before so it know where to start checking for statement
       if(lineText.charAt(i) == ' ' && noText)
         spaces++;
       else
         noText = false;
+      
       if(!(noText)){
         // if the first text in a line is a 'while'
         if(textLen > spaces + 5 && "while".equals(lineText.substring(spaces, spaces + 5)))
@@ -223,6 +227,16 @@ public class Style {
           isElse = true;
       }
       
+      // will check for comments and the spacing needed
+      if(lineText.contains("/*") && !(inComments)){
+        indents[0]++;
+        inComments = true;
+      }
+      else if(lineText.contains("*/") && (inComments)){
+        indents[0]--;
+        inComments = false;
+      }
+      
       // unexpected opening brace
       if(lineText.charAt(i) == '{')
         indents[0] += 2; // shifts indentation 2 to the right
@@ -232,15 +246,15 @@ public class Style {
     
     // will check if curly braces were added if not makes it
     // one line indent
-    if(orgIndents == indents[0]&& isWhile == true)
+    if(orgIndents == indents[0] && isWhile == true)
       indents[1]++;
-    else if(orgIndents == indents[0]&& isFor == true)
+    else if(orgIndents == indents[0] && isFor == true)
       indents[1]++;
-    else if(orgIndents == indents[0]&& isIf == true)
+    else if(orgIndents == indents[0] && isIf == true)
       indents[1]++;
-    else if(orgIndents == indents[0]&& isElseIf == true)
+    else if(orgIndents == indents[0] && isElseIf == true)
       indents[1]++;
-    else if(orgIndents == indents[0]&& isElse == true)
+    else if(orgIndents == indents[0] && isElse == true)
       indents[1]++;
     
   }

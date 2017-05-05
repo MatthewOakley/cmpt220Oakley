@@ -38,6 +38,7 @@ public class Style {
       System.out.println("-------------");
       System.out.println("Correct Usage: java Style <file name> > data.txt");
       System.out.println("Correct Usage: 'java Style <file name>");
+      return;
     }
     
     String fileName = args[0];

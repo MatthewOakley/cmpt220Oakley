@@ -1,0 +1,11 @@
+36 pts
+
+The project attempts to make a style checker. 
+The idea has good merit. 
+
+However, there are some issues...
+Code:
+- It does not compile! -5pts
+
+Overall:
+- Decent work above average of an SD1 student. +1pt
